@@ -1,4 +1,4 @@
-package main.java.com.helloworld09.leetcode.java;
+package com.helloworld09.leetcode.java;
 
 import java.util.*;
 
