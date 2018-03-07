@@ -1,31 +1,28 @@
-/**
- * Created by u8j8u on 2017/10/19.
- */
+package com.helloworld09.leetcode.java;
+
+
 public class LC678 {
     public boolean checkValidString(String s) {
         int stackLen = 0;
         int availStars = 0;
         int availTailStars = 0;
-        for(int i=0; i<s.length(); i++){
+        for (int i = 0; i < s.length(); i++) {
             char c = s.charAt(i);
-            if(c == '(') {
+            if (c == '(') {
                 stackLen++;
-            }
-            else if(c == ')') {
-                stackLen --;
-                if(stackLen < 0) {
-                    if(availStars > 0) {
-                        stackLen ++;
+            } else if (c == ')') {
+                stackLen--;
+                if (stackLen < 0) {
+                    if (availStars > 0) {
+                        stackLen++;
                         availStars--;
-                    }
-                    else{
+                    } else {
                         return false;
                     }
                 }
-            }
-            else if(c == '*') {
+            } else if (c == '*') {
                 availStars++;
-                availTailStars ++;
+                availTailStars++;
             }
             availTailStars = Math.min(availTailStars, stackLen);
 //            System.out.println(Arrays.asList(stackLen, availStars, availTailStars));
