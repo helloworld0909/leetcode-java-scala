@@ -1,5 +1,7 @@
 package com.helloworld09.leetcode.java;
 
+import com.helloworld09.leetcode.java.util.ListNode;
+
 /**
  * Definition for singly-linked list.
  * public class ListNode {
@@ -42,14 +44,5 @@ public class LC2 {
         ListNode l1 = new ListNode(1);
         ListNode l2 = new ListNode(2);
         System.out.println(addTwoNumbers(l1, l2).val);
-    }
-}
-
-class ListNode {
-    int val;
-    ListNode next;
-
-    ListNode(int x) {
-        val = x;
     }
 }
