@@ -15,6 +15,8 @@ public class LC16 {
         for (int firstIdx = 0; firstIdx < nums.length - 2; firstIdx++) {
             int twoSum = twoSumClosest(nums, target - nums[firstIdx], firstIdx + 1);
             int threeSum = twoSum + nums[firstIdx];
+            if (threeSum == target)
+                return threeSum;
             if (Math.abs(closestSum - target) > Math.abs(threeSum - target))
                 closestSum = threeSum;
         }
@@ -27,6 +29,8 @@ public class LC16 {
 
         while (lo < hi) {
             int newDiff = nums[lo] + nums[hi] - target;
+            if (newDiff == 0)
+                return target;
             if (Math.abs(newDiff) < Math.abs(closestSum - target)) {
                 closestSum = nums[lo] + nums[hi];
             }
