@@ -1,9 +1,7 @@
 package com.helloworld09.leetcode.java;
 
 import com.helloworld09.leetcode.java.util.ListNode;
-
 import java.util.Arrays;
-import java.util.List;
 
 
 public class LC24 {
