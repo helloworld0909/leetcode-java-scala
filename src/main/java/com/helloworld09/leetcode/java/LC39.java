@@ -1,7 +1,5 @@
 package com.helloworld09.leetcode.java;
 
-import scala.Int;
-
 import java.util.*;
 
 public class LC39 {
