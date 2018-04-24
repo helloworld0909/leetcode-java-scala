@@ -66,11 +66,7 @@ public class LC73 {
     }
 
     public static void main(String[] args) {
-        int[][] grid = {
-                new int[]{-4, -2147483648, 6, -7, 0},
-                new int[]{-8, 6, -8, -6, 0},
-                new int[]{2147483647, 2, -9, -6, -10}
-        };
+        int[][] grid = Grid.parseGrid("[[-4,-2147483648,6,-7,0],[-8,6,-8,-6,0],[2147483647,2,-9,-6,-10]]");
         LC73 solution = new LC73();
         solution.setZeroes(grid);
         Grid.printGrid(grid);
