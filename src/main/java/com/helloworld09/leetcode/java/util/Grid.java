@@ -56,21 +56,25 @@ public class Grid {
         Pattern rowPattern = Pattern.compile("\\[([^\\[\\]]+)\\]");
         Matcher rowMatcher = rowPattern.matcher(gridStr);
 
-        int m = 0;
-        while (rowMatcher.find())
-            m++;
-        rowMatcher.reset();
-
-        int[][] grid = new int[m][];
-        int i = 0;
+        int m = 0, n = 0;
+        List<String[]> numsResult = new ArrayList<>();
         while (rowMatcher.find()) {
             String[] nums = rowMatcher.group(1).trim().split("[, \t\n]+");
-            int[] row = new int[nums.length];
+            numsResult.add(nums);
+            n = Math.max(n, nums.length);
+            m++;
+        }
+        rowMatcher.reset();
+
+        int[][] grid = new int[m][n];
+
+        for (int i = 0; i < numsResult.size(); i++) {
+            String[] nums = numsResult.get(i);
+            int[] row = new int[n];
             for (int j = 0; j < nums.length; j++) {
                 row[j] = Integer.parseInt(nums[j]);
             }
             grid[i] = row;
-            i++;
         }
         return grid;
     }
