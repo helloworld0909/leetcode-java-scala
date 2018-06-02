@@ -2,8 +2,6 @@ package com.helloworld09.leetcode.java;
 
 import com.helloworld09.leetcode.java.util.ListNode;
 
-import java.util.List;
-
 public class LC86 {
     /**
      * Given a linked list and a value x, partition it such that all nodes less than x come before nodes greater than or equal to x.
