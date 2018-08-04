@@ -55,4 +55,12 @@ public class TreeNode {
         }
         return inorder;
     }
+
+    public static TreeNode getTestTree() {
+        TreeNode input = new TreeNode(0);
+        input.left = new TreeNode(1);
+        input.right = new TreeNode(2);
+        input.left.left = new TreeNode(3);
+        return input;
+    }
 }
