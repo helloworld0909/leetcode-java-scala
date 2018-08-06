@@ -1,6 +1,7 @@
 package com.helloworld09.leetcode.java;
 
 import java.util.*;
+
 import com.helloworld09.leetcode.java.util.TreeNode;
 
 public class LC103 {
@@ -32,10 +33,10 @@ public class LC103 {
         queue.add(root);
         boolean isReverse = false;
 
-        while(!queue.isEmpty()) {
+        while (!queue.isEmpty()) {
             List<TreeNode> newQueue = new LinkedList<>();
             List<Integer> traversal = new ArrayList<>();
-            for (TreeNode node: queue) {
+            for (TreeNode node : queue) {
                 traversal.add(node.val);
                 if (node.left != null) {
                     newQueue.add(node.left);
