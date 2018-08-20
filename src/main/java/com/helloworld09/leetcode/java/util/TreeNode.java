@@ -56,11 +56,40 @@ public class TreeNode {
         return inorder;
     }
 
+    public static int getDepth(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+
+        int depth = 0;
+        List<TreeNode> queue = new LinkedList<>();
+        queue.add(root);
+
+        while (!queue.isEmpty()) {
+            depth ++;
+            List<TreeNode> newQueue = new LinkedList<>();
+            for (TreeNode node : queue) {
+                if (node.left != null) {
+                    newQueue.add(node.left);
+                }
+                if (node.right != null) {
+                    newQueue.add(node.right);
+                }
+            }
+            queue = newQueue;
+        }
+        return depth;
+    }
+
     public static TreeNode getTestTree() {
         TreeNode input = new TreeNode(0);
         input.left = new TreeNode(1);
         input.right = new TreeNode(2);
         input.left.left = new TreeNode(3);
         return input;
+    }
+
+    public static void main(String[] args) {
+        System.out.println(getDepth(getTestTree()));
     }
 }
