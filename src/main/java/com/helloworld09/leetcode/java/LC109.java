@@ -2,6 +2,7 @@ package com.helloworld09.leetcode.java;
 
 import com.helloworld09.leetcode.java.util.ListNode;
 import com.helloworld09.leetcode.java.util.TreeNode;
+import com.helloworld09.leetcode.java.util.TreeVisualize;
 
 
 public class LC109 {
@@ -33,7 +34,7 @@ public class LC109 {
 
     public static void main(String[] args) {
         LC109 solution = new LC109();
-        ListNode input = ListNode.getLinkedList(1, 2, 3, 4, 5, 6);
-        System.out.println(new LC102().levelOrder(solution.sortedListToBST(input)));
+        ListNode input = ListNode.getLinkedList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
+        TreeVisualize.draw(solution.sortedListToBST(input));
     }
 }
