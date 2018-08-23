@@ -1,6 +1,7 @@
 package com.helloworld09.leetcode.java;
 
 import com.helloworld09.leetcode.java.util.TreeNode;
+import com.helloworld09.leetcode.java.util.TreeVisualize;
 
 public class LC106 {
     /**
@@ -49,6 +50,6 @@ public class LC106 {
         LC106 solution = new LC106();
         int[] inorder = new int[]{9, 3, 15, 20, 7};
         int[] postorder = new int[]{9, 15, 7, 20, 3};
-        System.out.println(new LC102().levelOrder(solution.buildTree(inorder, postorder)));
+        TreeVisualize.draw(solution.buildTree(inorder, postorder));
     }
 }
