@@ -8,6 +8,9 @@ public class TreeNode {
     public TreeNode left;
     public TreeNode right;
 
+    public TreeNode() {
+    }
+
     public TreeNode(int x) {
         val = x;
     }
@@ -66,7 +69,7 @@ public class TreeNode {
         queue.add(root);
 
         while (!queue.isEmpty()) {
-            depth ++;
+            depth++;
             List<TreeNode> newQueue = new LinkedList<>();
             for (TreeNode node : queue) {
                 if (node.left != null) {
