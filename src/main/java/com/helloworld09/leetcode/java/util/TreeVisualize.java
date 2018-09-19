@@ -38,6 +38,7 @@ class TreePanel extends JPanel {
     private Color gridColor = Color.WHITE;      //color of node background
     private Color linkLineColor = Color.BLACK;  //color of lines
     private Color stringColor = Color.BLUE;    //color of value strings
+    private Color specialLinkLineColor = Color.GREEN;   //color of special lines (node.next)
 
     public void setNodeWidth(int nodeWidth) {
         this.nodeWidth = nodeWidth;
@@ -119,20 +120,27 @@ class TreePanel extends JPanel {
 
         int newY = y + vGap + nodeHeight;
 
-        if (node.left != null) {
+        //Add special links for TreeLinkNode
+        if (node instanceof TreeLinkNode && ((TreeLinkNode) node).getNext() != null) {
+            int nextX = x + nodeWidth + hGap * (int) (Math.pow(2, depth + 1));
+            graphics.drawLine(x + nodeWidth, y + nodeHeight / 2, nextX, y + nodeHeight / 2);
+        }
+
+        if (node.getLeft() != null) {
             int leftMid = x - hGap * (int) (Math.pow(2, depth - 1));
             int leftX = leftMid - nodeWidth / 2;
             graphics.setColor(linkLineColor);
             graphics.drawLine(x + nodeWidth / 2, y + nodeHeight, leftMid, newY);
-            drawNode(node.left, leftX, newY, depth - 1, graphics);
+
+            drawNode(node.getLeft(), leftX, newY, depth - 1, graphics);
         }
 
-        if (node.right != null) {
+        if (node.getRight() != null) {
             int rightMid = x + nodeWidth + hGap * (int) (Math.pow(2, depth - 1));
             int rightX = rightMid - nodeWidth / 2;
             graphics.setColor(linkLineColor);
             graphics.drawLine(x + nodeWidth / 2, y + nodeHeight, rightMid, newY);
-            drawNode(node.right, rightX, newY, depth - 1, graphics);
+            drawNode(node.getRight(), rightX, newY, depth - 1, graphics);
         }
     }
 }
