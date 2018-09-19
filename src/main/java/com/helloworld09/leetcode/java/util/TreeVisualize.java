@@ -123,6 +123,7 @@ class TreePanel extends JPanel {
         //Add special links for TreeLinkNode
         if (node instanceof TreeLinkNode && ((TreeLinkNode) node).getNext() != null) {
             int nextX = x + nodeWidth + hGap * (int) (Math.pow(2, depth + 1));
+            graphics.setColor(specialLinkLineColor);
             graphics.drawLine(x + nodeWidth, y + nodeHeight / 2, nextX, y + nodeHeight / 2);
         }
 
