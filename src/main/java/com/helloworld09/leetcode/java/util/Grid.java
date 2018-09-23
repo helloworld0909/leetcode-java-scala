@@ -30,6 +30,19 @@ public class Grid {
         }
     }
 
+    public static char[][] getUniformGrid(int m, int n, char elem) {
+        if (m <= 0 || n <= 0) {
+            System.out.println("m, n should be positive integers");
+            return null;
+        } else {
+            char[][] grid = new char[m][n];
+            for (int i = 0; i < m; i++)
+                for (int j = 0; j < n; j++)
+                    grid[i][j] = elem;
+            return grid;
+        }
+    }
+
     public static int[][] getUniformGrid(int m, int n) {
         return getUniformGrid(m, n, 0);
     }
@@ -81,6 +94,12 @@ public class Grid {
 
     public static void printGrid(int[][] grid) {
         for (int[] line : grid) {
+            System.out.println(Arrays.toString(line));
+        }
+    }
+
+    public static void printGrid(char[][] grid) {
+        for (char[] line : grid) {
             System.out.println(Arrays.toString(line));
         }
     }
