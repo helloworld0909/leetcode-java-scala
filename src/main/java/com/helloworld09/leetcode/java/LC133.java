@@ -2,7 +2,6 @@ package com.helloworld09.leetcode.java;
 
 import java.util.*;
 
-import com.helloworld09.leetcode.java.util.GraphNode;
 import com.helloworld09.leetcode.java.util.UndirectedGraphNode;
 
 public class LC133 {
@@ -24,7 +23,9 @@ public class LC133 {
      * <p>
      * Note: The information about the tree serialization is only meant so that you can understand error output if you get a wrong answer. You don't need to understand the serialization to solve the problem.
      */
-    public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
+    private Map<UndirectedGraphNode, UndirectedGraphNode> visited = new HashMap<>();
+
+    public UndirectedGraphNode cloneGraphBFS(UndirectedGraphNode node) {
         if (node == null) {
             return null;
         }
@@ -53,6 +54,23 @@ public class LC133 {
             }
         }
         return retNode;
+    }
+
+    public UndirectedGraphNode cloneGraph(UndirectedGraphNode node) {
+        if (node == null) {
+            return null;
+        }
+
+        if (visited.containsKey(node)) {
+            return visited.get(node);
+        }
+
+        UndirectedGraphNode nodeCopy = new UndirectedGraphNode(node.label);
+        visited.put(node, nodeCopy);
+        for (UndirectedGraphNode neighbor : node.neighbors) {
+            nodeCopy.neighbors.add(cloneGraph(neighbor));
+        }
+        return nodeCopy;
     }
 
     public static void main(String[] args) {
