@@ -2,8 +2,6 @@ package com.helloworld09.leetcode.java;
 
 import com.helloworld09.leetcode.java.util.ListNode;
 
-import java.util.LinkedList;
-
 public class LC142 {
     /**
      * Given a linked list, return the node where the cycle begins. If there is no cycle, return null.
